@@ -1,0 +1,69 @@
+# Secret Key
+# The secret key is used to secure cryptographic functions.
+# WARNING: If you deploy your application on several servers, make sure to use the same key.
+#play.http.secret.key="***changeme***"
+
+#Elasticsearch
+search {
+#  ## Basic configuration
+#  # Index name.
+index = the_hive
+#  # ElasticSearch instance address.
+uri = "http://thehive_elasticsearch:9200"
+#  ## Advanced configuration
+#  # Scroll keepalive.
+keepalive = 1m
+#  # Scroll page size.
+pagesize = 50
+#  # Number of shards
+#  nbshards = 1
+#  # Number of replicas
+#  nbreplicas = 1
+#  # Arbitrary settings
+settings {
+#  #  # Maximum number of nested fields
+mapping.nested_fields.limit = 100
+}
+}
+
+
+## Authentication
+auth {
+#	# "provider" parameter contains authentication provider. It can be multi-valued (useful for migration)
+#	# available auth types are:
+#	# services.LocalAuthSrv : passwords are stored in user entity (in Elasticsearch). No configuration is required.
+#	# ad : use ActiveDirectory to authenticate users. Configuration is under "auth.ad" key
+#	# ldap : use LDAP to authenticate users. Configuration is under "auth.ldap" key
+provider = [local]
+#
+#  # By default, basic authentication is disabled. You can enable it by setting "method.basic" to true.
+#  #method.basic = true
+#
+#
+
+}
+
+# Cortex
+# TheHive can connect to one or multiple  Cortex  instances.  Give  each
+# Cortex instance a name and specify the associated URL.
+#
+# In order to use Cortex, first you need to enable the Cortex module by uncomment the next line
+
+play.modules.enabled += connectors.cortex.CortexConnector
+
+cortex {
+  "thehive_cortex" {
+    url = "http://thehive_cortex:9001"
+    key = "{{ cortex_api_key }}"
+    # HTTP client configuration (SSL and proxy)
+    ws {}
+  }
+}
+
+{% if thehivesentinelhooks %}
+webhooks {
+  myLocalWebHook {
+    url = "http://thehivesentinelhooks:9002"
+  }
+}
+{% endif %}

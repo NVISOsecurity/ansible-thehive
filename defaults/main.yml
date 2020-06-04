@@ -1,0 +1,27 @@
+---
+thehive_version: "3.4.2"
+cortex_version: "3.0.1"
+elasticsearch_version: "6.8.0"
+thehivesentinelhooks_version: "0.9.2"
+docker_network_name: thehive
+sslcert_commonname: 
+cortex_api_key: 
+# https://github.com/NVISO-BE/thehive-sentinel-integration/tree/master/thehive-sentinel-hooks
+thehivesentinelhooks: false
+thehivesentinelhooks_logLevel: info
+organization: NVISO
+resolvedCaseLogicAppURL: 
+importedAlertAppURL: 
+ignoredAlertAppURL: 
+newCaseLogicAppURL: 
+newAlertLogicAppURL: 
+# https://github.com/NVISO-BE/thehive-sentinel-integration/tree/master/thehive-sentinel-incidents
+thehivesentinelincidents: false
+thehive_api_key:
+sentinel_tenantId:
+sentinel_subscriptionId:
+sentinel_clientId:
+sentinel_clientSecret:
+sentinel_resourceGroupName:
+sentinel_workspaceName:
+sentinel_workspaceId:

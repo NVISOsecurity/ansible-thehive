@@ -1,0 +1,13 @@
+---
+
+- name: restart thehive
+  command: docker restart thehive_main
+
+- name: restart cortex
+  command: docker restart thehive_cortex
+
+- name: restart thehivesentinelhooks
+  command: docker restart thehivesentinelhooks
+
+- name: restart nginx
+  command: docker restart nginx

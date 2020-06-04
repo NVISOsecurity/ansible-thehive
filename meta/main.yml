@@ -1,0 +1,9 @@
+---
+allow_duplicates: true
+dependencies: []
+
+galaxy_info:
+  author: wstinkens
+  description: TheHive/Cortex install
+  company: "NVISO"
+  license: "GPL-3.0"
